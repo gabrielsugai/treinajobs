@@ -1,3 +1,9 @@
-<h1>Bem vindo ao Treina Jobs!</h1>
-
+<nav>
+      <%if user_signed_in? or headhunter_signed_in?%>
+      <%else%>
+        <%= link_to  "Entrar", new_user_session_path %>
+        <%= link_to  "Registrar", new_user_registration_path %>
+      <%end%>
+</nav>
 <%= link_to 'Empresas', companies_path %>
+<h1>Bem vindo ao Treina Jobs!</h1>

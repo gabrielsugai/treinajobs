@@ -10,14 +10,15 @@
   </head>
 
   <body>
-    <nav>
-      <%if user_signed_in?%>
-        <%= link_to  "Sair", destroy_user_session_path, method: :delete %>
-      <%else%>
-        <%= link_to  "Entrar", new_user_session_path %>
-        <%= link_to  "Registrar", new_user_registration_path %>
-      <%end%>
-    </nav>
+
+  <nav>
+    <%if user_signed_in?%>
+      <%= link_to  "Sair", destroy_user_session_path, method: :delete %>
+    <%elsif headhunter_signed_in?%>
+      <%= link_to  "Sair", destroy_headhunter_session_path, method: :delete  %>
+    <%end%>
+  </nav>
+  
     <p class="notice"><%= notice %></p>
     <%= yield %>
   </body>

@@ -1,1 +1,8 @@
+<nav>
+      <%if headhunter_signed_in? or user_signed_in?%>
+      <%else%>
+        <%= link_to  "Entrar", new_headhunter_session_path %>
+        <%= link_to  "Registrar", new_headhunter_registration_path %>
+      <%end%>
+</nav>
 <center><h1>Bem vindo a seção para recrutadores</h1></center>

@@ -1,5 +1,6 @@
 <%if @profile %>
   <p>Bem vindo</p>
+  <%= link_to  "Vagas disponiveis", jobs_path %>
 <% else %>
   <p>Você precisa completar o seu perfil para continuar!</p>
   <%= link_to  "Completar Perfil", new_user_profile_path %>

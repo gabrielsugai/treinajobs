@@ -1,0 +1,4 @@
+<% @jobs.each do |job| %>
+  <p><%= link_to job.title, job %></p>
+<% end %>
+<%= link_to  "Voltar", user_root_path %>

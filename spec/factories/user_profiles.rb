@@ -1,11 +1,11 @@
 FactoryBot.define do
   factory :user_profile do
-    name { "MyString" }
-    social_name { "MyString" }
-    date_of_birth { "2020-05-18" }
-    schooling { "MyString" }
-    description { "MyString" }
-    experience { "MyString" }
+    sequence(:name) { |n| "Gabriel#{n}"}
+    social_name { '' }
+    date_of_birth { "05/12/1997" }
+    schooling { "Tecnologo" }
+    description { "Descricao" }
+    experience { "trabalhei..." }
     user_id { create(:user) }
   end
 end

@@ -28,13 +28,13 @@ feature 'Headhunter register a job' do
     
   end
 
-  scenario 'and back to root' do
+  scenario 'and back to jobs index' do
     headhunter = create(:headhunter)
     job = create(:job)
     login_as headhunter, scope: :headhunter
 
     visit job_path(job)
     click_on 'Voltar'
-    expect(current_path).to eq(headhunter_root_path)
+    expect(current_path).to eq(jobs_path)
   end
 end

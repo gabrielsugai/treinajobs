@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   get '/companies', to: 'home#companies_index'
 
   resources :user_profiles, only: [:new, :create]
-  resources :jobs, only: [:show, :new, :create]
+  resources :jobs, only: [:index, :show, :new, :create]
 end

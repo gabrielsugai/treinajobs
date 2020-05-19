@@ -6,5 +6,6 @@ FactoryBot.define do
     schooling { "MyString" }
     description { "MyString" }
     experience { "MyString" }
+    user_id { create(:user) }
   end
 end

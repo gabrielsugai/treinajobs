@@ -1,0 +1,17 @@
+<%= form_with(model: @job, local: true) do |f| %>
+  <%= f.label :title, 'Titulo' %>
+  <%= f.text_field :title %>
+  <%= f.label :description, 'Descrição da vaga' %>
+  <%= f.text_field :description %>
+  <%= f.label :skills, 'Habilidades desejadas' %>
+  <%= f.text_field :skills %>
+  <%= f.label :salary, 'Faixa salarial' %>
+  <%= f.text_field :salary %>
+  <%= f.label :level, 'Nivel da vaga' %>
+  <%= f.text_field :level %>
+  <%= f.label :limit_date, 'Data limite' %>
+  <%= f.date_field :limit_date %>
+  <%= f.label :local, 'Local' %>
+  <%= f.text_field :local %>
+  <%= f.submit 'Registrar' %>
+<% end %>

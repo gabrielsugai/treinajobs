@@ -1,0 +1,17 @@
+<h1><%= @job.title %></h1>
+<dl>
+  <dt>Descrição da vaga:</dt>
+  <dd><%= @job.description%></dd>
+  <dt>Habilidades desejadas:</dt>
+  <dd><%= @job.skills%></dd>
+  <dt>Faixa salarial:</dt>
+  <dd><%= @job.salary%></dd>
+  <dt>Nivel da vaga:</dt>
+  <dd><%= @job.level%></dd>
+  <dt>Data limite:</dt>
+  <dd><%= l @job.limit_date%></dd>
+  <dt>Local:</dt>
+  <dd><%= @job.local%></dd>
+</dl>
+
+<%= link_to  "Voltar", root_path %>

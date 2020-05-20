@@ -11,4 +11,8 @@ class UserProfilesController < ApplicationController
     flash[:notice] = "Perfil completado com sucesso!"
     redirect_to root_path
   end
+
+  def myapplys
+    @profile = UserProfile.find(current_user.id)
+  end
 end

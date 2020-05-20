@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   root to: 'home#index'
   get '/companies', to: 'home#companies_index'
 
-  resources :user_profiles, only: [:new, :create]
-  resources :jobs, only: [:index, :show, :new, :create]
+  resources :user_profiles, only: [:new, :create] do
+    get 'myapplys', on: :collection
+  end
+  resources :jobs, only: [:index, :show, :new, :create] do
+    resources :opportunities, only: [:index, :new, :create]
+  end
 end

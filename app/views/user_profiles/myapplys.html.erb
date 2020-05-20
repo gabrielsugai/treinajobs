@@ -1,0 +1,4 @@
+<h3>Vagas que você se inscreveu</h3>
+<% @profile.jobs.each do |job| %>
+  <p><%= job.title%></p>
+<% end %>

@@ -14,4 +14,8 @@
   <dd><%= @job.local%></dd>
 </dl>
 
+<% if user_signed_in? %>
+  <%= link_to  "Candidatar-se", new_job_opportunity_path(@job) %>
+<% end %>
+
 <%= link_to  "Voltar", jobs_path %>

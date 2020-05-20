@@ -6,6 +6,6 @@ FactoryBot.define do
     schooling { "Tecnologo" }
     description { "Descricao" }
     experience { "trabalhei..." }
-    user_id { create(:user) }
+    user { create(:user) }
   end
 end

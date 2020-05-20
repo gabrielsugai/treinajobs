@@ -1,0 +1,17 @@
+<h1><%= @profile.name %></h1>
+<h4><%= @profile.description%></h4>
+
+<dl>
+  <dt>Nome social:</dt>
+  <dd><%= @profile.social_name %></dd>
+  <dt>Data de nascimento:</dt>
+  <dd><%= @profile.date_of_birth %></dd>
+  <dt>Formação:</dt>
+  <dd><%= @profile.schooling%></dd>
+  <dt>Experiencia</dt>
+  <dd><%= @profile.experience%></dd>
+</dl>
+
+<% if headhunter_signed_in? %>
+  <%= link_to  "Voltar", headhunter_root_path %>
+<% end %>

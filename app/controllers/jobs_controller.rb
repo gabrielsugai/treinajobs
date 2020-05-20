@@ -15,4 +15,9 @@ class JobsController < ApplicationController
     @job.save
     redirect_to @job
   end
+
+  def candidates
+    @job = Job.find(params[:id])
+  end
+
 end

@@ -1,4 +1,16 @@
-<% @jobs.each do |job| %>
-  <p><%= link_to job.title, job %></p>
+<% if user_signed_in?%>
+  <% @jobs.each do |job| %>
+    <p><%= link_to job.title, job %></p>
+  <% end %>
+  <%= link_to  "Voltar", user_root_path %>
+
+<% elsif headhunter_signed_in?%>
+  <% @jobs.each do |job| %>
+    <% if job.headhunter_id == current_headhunter.id %>
+      <div>
+      <p><%= link_to job.title, job %></p>
+      </div>
+    <% end %>
+  <% end %>
+  <%= link_to  "Voltar", headhunter_root_path %>
 <% end %>
-<%= link_to  "Voltar", user_root_path %>

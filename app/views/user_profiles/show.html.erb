@@ -23,7 +23,7 @@
 <% end %>
 
 <% if user_signed_in? or headhunter_signed_in? %>
-  <% if @profile.user_id == current_user or headhunter_signed_in? %>
+  <% if @profile.user_id == current_user.id or headhunter_signed_in? %>
     <h3>Comentarios:</h3>
     <% @profile.comments.each do |comment| %>
       <p><%= comment.text %></p>

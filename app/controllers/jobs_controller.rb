@@ -18,6 +18,7 @@ class JobsController < ApplicationController
 
   def candidates
     @job = Job.find(params[:id])
+    @opportunities = Opportunity.all
   end
 
 end

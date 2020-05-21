@@ -3,5 +3,6 @@ FactoryBot.define do
     user_profile
     job
     text { "MyString" }
+    feature { 0 }
   end
 end

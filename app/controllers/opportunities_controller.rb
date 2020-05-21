@@ -17,4 +17,15 @@ class OpportunitiesController < ApplicationController
     flash[:notice] = "Processo realizado com sucesso!"
     redirect_to user_root_path
   end
+
+  def feature_candidate
+    @opportunity = Opportunity.find(params[:id])
+    @job = Job.find(params[:job_id])
+    if @opportunity.not_feature?
+      @opportunity.candidate_feature!
+    elsif @opportunity.candidate_feature?
+      @opportunity.not_feature!
+    end
+    redirect_to candidates_job_path(@job)
+  end
 end

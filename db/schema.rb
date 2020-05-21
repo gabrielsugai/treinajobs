@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_21_041636) do
+ActiveRecord::Schema.define(version: 2020_05_21_093044) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_profile_id", null: false
@@ -54,6 +54,8 @@ ActiveRecord::Schema.define(version: 2020_05_21_041636) do
     t.string "text"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_featured", default: 0
+    t.integer "feature", default: 0
     t.index ["job_id"], name: "index_opportunities_on_job_id"
     t.index ["user_profile_id"], name: "index_opportunities_on_user_profile_id"
   end

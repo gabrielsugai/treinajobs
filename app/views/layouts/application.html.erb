@@ -20,7 +20,7 @@
         <%= link_to  "Inicio", user_root_path %>
         <%= link_to  "Vagas disponiveis", jobs_path %>
         <%= link_to  "Minhas vagas", myapplys_user_profiles_path %>
-        <%= link_to  "Meu perfil", @profile %>
+        <%= link_to  "Meu perfil", current_user.user_profile %>
       <% end %>
       <%= link_to  "Sair", destroy_user_session_path, method: :delete %>
 

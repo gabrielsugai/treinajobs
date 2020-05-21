@@ -21,4 +21,5 @@ class UserProfilesController < ApplicationController
   def myapplys
     @profile = UserProfile.find(current_user.id)
   end
+  
 end

@@ -15,8 +15,11 @@ Rails.application.routes.draw do
     get 'myapplys', on: :collection
     resources :comments, only: [:create]
   end
+
   resources :jobs, only: [:index, :show, :new, :create] do
     get 'candidates', on: :member
-    resources :opportunities, only: [:index, :new, :create]
+    resources :opportunities, only: [:index, :new, :create] do
+      get 'feature_candidate', on: :member
+    end
   end
 end

@@ -10,16 +10,38 @@
   </head>
 
   <body>
+  <header>
+    <center><h1>Treina-Jobs</h1></center>
+  </header>
 
   <nav>
     <%if user_signed_in?%>
+      <% if current_user.user_profile %>
+        <%= link_to  "Inicio", user_root_path %>
+        <%= link_to  "Vagas disponiveis", jobs_path %>
+        <%= link_to  "Minhas vagas", myapplys_user_profiles_path %>
+        <%= link_to  "Meu perfil", @profile %>
+      <% end %>
       <%= link_to  "Sair", destroy_user_session_path, method: :delete %>
+
+
     <%elsif headhunter_signed_in?%>
+      <%= link_to  "Inicio", headhunter_root_path %>
+      <%= link_to  "Vagas cadastradas", jobs_path %>
+      <%= link_to  "Cadastrar nova vaga", new_job_path %>
       <%= link_to  "Sair", destroy_headhunter_session_path, method: :delete  %>
+
+    <% else %>
+      <%= link_to 'Inicio', root_path %>
+      <%= link_to 'Empresas', companies_path %>
     <%end%>
   </nav>
 
     <p class="notice"><%= notice %></p>
     <%= yield %>
+
+    <footer><center><h5>Treina Jobs - TreinaDev 3</br>
+                Gabriel Sugai</br>
+                <a href="github.com/gabrielsugai">GitHub</a></h5></center></footer>
   </body>
 </html>

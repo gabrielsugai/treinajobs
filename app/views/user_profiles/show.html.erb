@@ -5,12 +5,32 @@
   <dt>Nome social:</dt>
   <dd><%= @profile.social_name %></dd>
   <dt>Data de nascimento:</dt>
-  <dd><%= @profile.date_of_birth %></dd>
+  <dd><%= l @profile.date_of_birth %></dd>
   <dt>Formação:</dt>
   <dd><%= @profile.schooling%></dd>
   <dt>Experiencia</dt>
   <dd><%= @profile.experience%></dd>
 </dl>
+
+<% if headhunter_signed_in? %>
+  <%= form_with(model: [@profile, @comment], local: true,  method: :post) do |comment| %>
+    <div>
+    <%= comment.label :text, 'Digite aqui:' %>
+    <%= comment.text_field :text %>
+    <%= comment.submit 'Comentar' %>
+    </div>
+  <% end %>
+<% end %>
+
+<% if user_signed_in? or headhunter_signed_in? %>
+  <% if @profile.user_id == current_user or headhunter_signed_in? %>
+    <h3>Comentarios:</h3>
+    <% @profile.comments.each do |comment| %>
+      <p><%= comment.text %></p>
+      <p style="font-size:70%;"><%= l comment.created_at%></p>
+    <% end %>
+  <% end %>
+<% end %>
 
 <% if headhunter_signed_in? %>
   <%= link_to  "Voltar", headhunter_root_path %>

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :user_profiles, only: [:show, :new, :create] do
     get 'myapplys', on: :collection
+    resources :comments, only: [:create]
   end
   resources :jobs, only: [:index, :show, :new, :create] do
     get 'candidates', on: :member

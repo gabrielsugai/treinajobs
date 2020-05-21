@@ -2,6 +2,7 @@ class UserProfilesController < ApplicationController
   
   def show
     @profile = UserProfile.find(params[:id])
+    @comment = Comment.new()
   end
 
   def new

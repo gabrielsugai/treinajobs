@@ -39,7 +39,7 @@ feature 'Headhunter can view all users who applied to a job' do
 
     expect(page).to have_content(user_profile.name)
     expect(page).to have_content(user_profile.social_name)
-    expect(page).to have_content(user_profile.date_of_birth)
+    expect(page).to have_content(I18n.l(user_profile.date_of_birth))
     expect(page).to have_content(user_profile.schooling)
     expect(page).to have_content(user_profile.description)
     expect(page).to have_content(user_profile.experience)

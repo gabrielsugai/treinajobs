@@ -1,0 +1,5 @@
+<h3>Comentarios:</h3>
+<% @profile.comments.each do |comment| %>
+  <p><%= comment.text %></p>
+  <p style="font-size:70%;"><%= l comment.created_at%></p>
+<% end %>

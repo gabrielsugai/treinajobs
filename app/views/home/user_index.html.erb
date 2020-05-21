@@ -1,6 +1,7 @@
 <%if @profile %>
   <%= link_to  "Vagas disponiveis", jobs_path %>
   <%= link_to  "Minhas vagas", myapplys_user_profiles_path %>
+  <%= link_to  "Meu perfil", @profile %>
   <p>Bem vindo</p>
 <% else %>
   <p>Você precisa completar o seu perfil para continuar!</p>

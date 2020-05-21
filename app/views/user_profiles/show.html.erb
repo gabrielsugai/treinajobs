@@ -35,3 +35,7 @@
 <% if headhunter_signed_in? %>
   <%= link_to  "Voltar", headhunter_root_path %>
 <% end %>
+
+<% if user_signed_in? %>
+  <%= link_to  "Voltar", user_root_path %>
+<% end %>

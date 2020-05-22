@@ -1,0 +1,14 @@
+<h3>Feedbacks</h3>
+
+<% @opportunities.each do |opportunity| %>
+  <dl>
+  <%if opportunity.feedback_message.present? %>
+    <dt>Vaga:</dt>
+    <dd><%= opportunity.job.title%></dd>
+    <dt>Feedback:</dt>
+    <dd><%= opportunity.feedback_message%></dd>
+  <%end%>
+  </dl>
+<%end%>
+
+<%= link_to  "Voltar", user_root_path %>

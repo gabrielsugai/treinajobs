@@ -1,8 +1,9 @@
 class OpportunitiesController < ApplicationController
+
   def index
-    @jobs = Job.all
-    @opportunities = Opportunity.all
+    @opportunities = current_user.user_profile.opportunities
   end
+
   def new
     @job = Job.find(params[:job_id])
     @opportunity = Opportunity.new()

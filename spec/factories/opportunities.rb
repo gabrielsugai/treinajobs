@@ -3,6 +3,7 @@ FactoryBot.define do
     user_profile
     job
     text { "MyString" }
+    feedback_message { '' }
     feature { 0 }
   end
 end

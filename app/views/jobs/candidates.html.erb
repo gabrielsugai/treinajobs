@@ -1,10 +1,18 @@
 <h1>Candidatos cadastrados na sua vaga</h1>
 
 <% @job.opportunities.each do |profile| %>
-  <%#puts(profile.feature)%>
   <%= link_to profile.user_profile.name, profile.user_profile %>
   <%if profile.candidate_feature? %>
     <p>Candidato destacado</p>
   <% end %>
   <%= link_to  "Destacar", feature_candidate_job_opportunity_path(profile) %>
+  <%if profile.rejected? %>
+    <p>Perfil rejeitado</p>
+  <% else %>
+    <%= form_with(url: feedback_job_opportunity_path(profile), method: :get, local: true) do |f| %>
+      <%= f.label :feedback_message,'Feedback' %>
+      <%= f.text_field :feedback_message %>
+      <%= f.submit 'Enviar e rejeitar perfil' %>
+    <% end %>
+  <%end%>
 <% end %>

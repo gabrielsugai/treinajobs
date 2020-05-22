@@ -21,11 +21,21 @@ class OpportunitiesController < ApplicationController
   def feature_candidate
     @opportunity = Opportunity.find(params[:id])
     @job = Job.find(params[:job_id])
-    if @opportunity.not_feature?
+    if @opportunity.not_feature? or @opportunity.rejected?
       @opportunity.candidate_feature!
     elsif @opportunity.candidate_feature?
       @opportunity.not_feature!
     end
     redirect_to candidates_job_path(@job)
   end
+
+  def feedback
+    @opportunity = Opportunity.find(params[:id])
+    @job = Job.find(params[:job_id])
+    @opportunity.feedback_message = params[:feedback_message]
+    @opportunity.rejected!
+    flash[:notice] = "Mensagem enviada com sucesso!"
+    redirect_to candidates_job_path(@job)
+  end
+  
 end

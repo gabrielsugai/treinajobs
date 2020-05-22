@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-feature 'Headhunter reject a Candidates profile' do
-  xscenario 'successfully' do
+feature 'Headhunter send a feedback' do
+  scenario 'successfully' do
     user = create(:user)
     headhunter = create(:headhunter)
     job = create(:job, headhunter: headhunter)
@@ -11,13 +11,12 @@ feature 'Headhunter reject a Candidates profile' do
     login_as headhunter, scope: :headhunter
     
     visit candidates_job_path(job)
-    click_on 'Rejeitar'
-
+  
     fill_in 'Feedback', with: 'Infelizmente seu perfil não é o que procuramos para essa vaga'
-    click_on 'Enviar'
-    click_on 'Rejeitar candidato'
+    click_on 'Enviar e rejeitar perfil'
 
-    expect(page).to have_content('Candidato rejeitado')
-    expect(current_path).to eq(headhunter_root_path)
+    expect(page).to have_content('Mensagem enviada com sucesso!')
+    expect(page).to have_content('Perfil rejeitado')
+    expect(current_path).to eq(candidates_job_path(job))
   end
 end

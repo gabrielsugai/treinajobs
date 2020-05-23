@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   end
   
   resources :jobs, only: [:index, :show, :new, :create] do
+    resources :job_offers, only: [:new, :create]
     get 'candidates', on: :member
     resources :opportunities, only: [:index, :new, :create] do
       get 'feedback', on: :member

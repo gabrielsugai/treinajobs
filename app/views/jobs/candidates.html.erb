@@ -6,6 +6,7 @@
     <p>Candidato destacado</p>
   <% end %>
   <%= link_to  "Destacar", feature_candidate_job_opportunity_path(profile) %>
+  <%= link_to  "Enviar proposta", new_job_job_offer_path(profile)%>
   <%if profile.rejected? %>
     <p>Perfil rejeitado</p>
   <% else %>

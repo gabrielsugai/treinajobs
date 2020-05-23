@@ -1,0 +1,15 @@
+<%= form_with model: [@job, @offer], local: true do |f| %>
+  <%= f.label :user_profile_id, 'Candidato' %>
+  <%= f.collection_select :user_profile_id, @candidates, :id, :name %>
+  <%= f.label :start_date, 'Data de início' %>
+  <%= f.date_field :start_date %>
+  <%= f.label :salary, 'Salário' %>
+  <%= f.text_field :salary %>
+  <%= f.label :benefits, 'Benefícios' %>
+  <%= f.text_field :benefits %>
+  <%= f.label :function, 'Função' %>
+  <%= f.text_field :function %>
+  <%= f.label :expectations, 'Nossas expectativas' %>
+  <%= f.text_field :expectations %>
+  <%= f.submit 'Enviar proposta' %>
+<%end%>

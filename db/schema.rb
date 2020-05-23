@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_22_042358) do
+ActiveRecord::Schema.define(version: 2020_05_23_010227) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_profile_id", null: false
@@ -32,6 +32,21 @@ ActiveRecord::Schema.define(version: 2020_05_22_042358) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_headhunters_on_email", unique: true
     t.index ["reset_password_token"], name: "index_headhunters_on_reset_password_token", unique: true
+  end
+
+  create_table "job_offers", force: :cascade do |t|
+    t.date "start_date"
+    t.decimal "salary"
+    t.string "benefits"
+    t.string "function"
+    t.string "expectations"
+    t.integer "status", default: 0
+    t.integer "job_id", null: false
+    t.integer "user_profile_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["job_id"], name: "index_job_offers_on_job_id"
+    t.index ["user_profile_id"], name: "index_job_offers_on_user_profile_id"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -88,6 +103,8 @@ ActiveRecord::Schema.define(version: 2020_05_22_042358) do
 
   add_foreign_key "comments", "headhunters"
   add_foreign_key "comments", "user_profiles"
+  add_foreign_key "job_offers", "jobs"
+  add_foreign_key "job_offers", "user_profiles"
   add_foreign_key "jobs", "headhunters"
   add_foreign_key "opportunities", "jobs"
   add_foreign_key "opportunities", "user_profiles"

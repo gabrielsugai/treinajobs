@@ -4,6 +4,10 @@ class JobOffersController < ApplicationController
     @offers = current_user.user_profile.job_offers
   end
 
+  def show
+    @offer = JobOffer.find(params[:id])
+  end
+
   def new
     @job = Job.find(params[:job_id])
     @candidates = @job.user_profiles

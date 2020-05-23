@@ -1,17 +1,9 @@
 <h1>Suas propostas</h1>
 <dl>
 <% @offers.each do |offer| %>
+  <%job = offer.job%>
   <dt>Vaga:</dt>
-  <dd><%= offer.job.title %></dd>
-  <dt>Data de início:</dt>
-  <dd><%= l offer.start_date %></dd>
-  <dt>Salário:</dt>
-  <dd><%= number_to_currency(offer.salary) %></dd>
-  <dt>Beneficios:</dt>
-  <dd><%= offer.benefits%></dd>
-  <dt>Função:</dt>
-  <dd><%= offer.function %></dd>
-  <dt>Nossas expectativas:</dt>
-  <dd><%= offer.expectations %></dd>
+  <dd><%= link_to offer.job.title, job_job_offer_path(offer, job) %></dd>
 <% end %>
 </dl>
+<%= link_to  "Voltar", user_root_path %>

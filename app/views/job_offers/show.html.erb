@@ -1,0 +1,15 @@
+<h1><%= @offer.job.title%></h1>
+<dl>
+  <dt>Data de início:</dt>
+  <dd><%= l @offer.start_date %></dd>
+  <dt>Salário:</dt>
+  <dd><%= number_to_currency(@offer.salary) %></dd>
+  <dt>Beneficios:</dt>
+  <dd><%= @offer.benefits%></dd>
+  <dt>Função:</dt>
+  <dd><%= @offer.function %></dd>
+  <dt>Nossas expectativas:</dt>
+  <dd><%= @offer.expectations %></dd>
+</dl>
+
+<%= link_to  "Voltar", job_job_offers_path(@offer) %>

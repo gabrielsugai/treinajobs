@@ -20,6 +20,7 @@
         <%= link_to  "Inicio", user_root_path %>
         <%= link_to  "Vagas disponiveis", jobs_path %>
         <%= link_to  "Minhas vagas", myapplys_user_profiles_path %>
+        <%= link_to  "Propostas", job_job_offers_path(current_user) %>
         <%= link_to  "Feedbacks", job_opportunities_path(current_user) %>
         <%= link_to  "Meu perfil", current_user.user_profile %>
       <% end %>

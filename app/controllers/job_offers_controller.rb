@@ -1,5 +1,9 @@
 class JobOffersController < ApplicationController
 
+  def index
+    @offers = current_user.user_profile.job_offers
+  end
+
   def new
     @job = Job.find(params[:job_id])
     @candidates = @job.user_profiles

@@ -1,12 +1,12 @@
 FactoryBot.define do
   factory :job_offer do
-    start_date { "2020-05-22" }
-    salary { "9.99" }
-    benefits { "MyString" }
-    function { "MyString" }
-    expectations { "MyString" }
-    status { 1 }
-    job { nil }
-    user_profile { nil }
+    start_date { "#{1.day.from_now}" }
+    salary { 1500 }
+    benefits { "VT, VA, Plano de saude" }
+    function { "Dev rails junior" }
+    expectations { "Esperamos que de o seu melhor para ajudar a empresa" }
+    status { 0 }
+    job
+    user_profile
   end
 end

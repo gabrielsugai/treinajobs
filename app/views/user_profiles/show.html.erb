@@ -1,4 +1,7 @@
-<%= image_tag @profile.avatar %>
+<% if @profile.avatar.present? %>
+  <%= image_tag @profile.avatar %>
+<% end %>
+
 <h1><%= @profile.name %></h1>
 <h4><%= @profile.description%></h4>
 

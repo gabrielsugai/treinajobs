@@ -1,7 +1,9 @@
 <% if user_signed_in?%>
   <% @jobs.each do |job| %>
     <% if job.opened? %>
-      <p><%= link_to job.title, job %></p>
+      <% if Date.today <= job.limit_date %>
+        <p><%= link_to job.title, job %></p>
+      <% end %>
     <% end %>
   <% end %>
   <%= link_to  "Voltar", user_root_path %>
@@ -9,10 +11,13 @@
 <% elsif headhunter_signed_in?%>
   <% @jobs.each do |job| %>
     <% if job.headhunter_id == current_headhunter.id %>
-      <% if job.opened? %>
+      <% if job.opened? and Date.today < job.limit_date %>
         <div>
         <p><%= link_to job.title, job %></p>
         </div>
+      <% elsif job.ended? or job.limit_date < Date.today %>
+        <p><%= job.title %></p>
+        <p>Processo encerrado!</p>
       <% end %>
     <% end %>
   <% end %>

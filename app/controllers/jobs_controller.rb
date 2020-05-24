@@ -5,6 +5,9 @@ class JobsController < ApplicationController
   end
   def show
     @job = Job.find(params[:id])
+    if @job.limit_date < Date.today
+      @job.ended!
+    end
   end
   def new
     @job = Job.new()

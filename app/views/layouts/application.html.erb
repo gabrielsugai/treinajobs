@@ -23,6 +23,7 @@
         <%= link_to  "Propostas", job_job_offers_path(current_user) %>
         <%= link_to  "Feedbacks", job_opportunities_path(current_user) %>
         <%= link_to  "Meu perfil", current_user.user_profile %>
+        <%= link_to  "Editar perfil", edit_user_profile_path(current_user)%>
       <% end %>
       <%= link_to  "Sair", destroy_user_session_path, method: :delete %>
 

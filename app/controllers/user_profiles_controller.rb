@@ -12,8 +12,7 @@ class UserProfilesController < ApplicationController
   end
   
   def create
-    @user_profile = UserProfile.new(params.require(:user_profile).permit(:avatar, :name, :social_name, :date_of_birth, 
-                                                                        :schooling, :description, :experience))
+    @user_profile = UserProfile.new(profile_params)
     @user_profile.user_id = current_user.id
     if @user_profile.save
       flash[:notice] = "Perfil completado com sucesso!"
@@ -23,8 +22,29 @@ class UserProfilesController < ApplicationController
     end
   end
 
+  def edit
+    @user_profile = current_user.user_profile
+  end
+
+  def update
+    @user_profile = current_user.user_profile
+    if @user_profile.update(profile_params)
+      flash[:notice] = 'Perfil atualizado com sucesso!'
+      redirect_to @user_profile
+    else
+      render :new
+    end
+  end
+
   def myapplys
     @profile = UserProfile.find(current_user.id)
+  end
+
+  private
+
+  def profile_params
+    params.require(:user_profile).permit(:avatar, :name, :social_name, :date_of_birth, 
+      :schooling, :description, :experience)
   end
   
 end

@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :user_have_profile
+  before_action :authenticate_headhunter!
 
   def create
     @user_profile = UserProfile.find(params[:user_profile_id])

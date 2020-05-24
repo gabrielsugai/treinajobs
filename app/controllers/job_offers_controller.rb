@@ -1,4 +1,8 @@
 class JobOffersController < ApplicationController
+  
+  before_action :visitor
+  before_action :user_have_profile
+  before_action :authenticate_headhunter!, only: [:new, :create]
 
   def index
     if user_signed_in?

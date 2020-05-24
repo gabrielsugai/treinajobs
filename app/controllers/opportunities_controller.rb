@@ -1,5 +1,8 @@
 class OpportunitiesController < ApplicationController
-
+  before_action :visitor
+  before_action :user_have_profile
+  before_action :authenticate_headhunter!, only: [:feature_candidate, :feedback]
+  
   def index
     @opportunities = current_user.user_profile.opportunities
   end

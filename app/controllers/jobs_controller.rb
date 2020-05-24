@@ -1,4 +1,7 @@
 class JobsController < ApplicationController
+  before_action :visitor
+  before_action :user_have_profile
+  before_action :authenticate_headhunter!, only: [:new, :create, :candidates, :end_job]
 
   def index
     @jobs = Job.all
@@ -35,5 +38,4 @@ class JobsController < ApplicationController
     flash[:notice] = "Processo finalizado com sucesso!"
     redirect_to headhunter_root_path
   end
-
 end

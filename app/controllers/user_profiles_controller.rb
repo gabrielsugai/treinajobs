@@ -1,4 +1,6 @@
 class UserProfilesController < ApplicationController
+  before_action :visitor
+  before_action :user_have_profile, except: [:new, :create]
   
   def show
     @profile = UserProfile.find(params[:id])

@@ -14,7 +14,7 @@ feature 'Headhunter set a candidate as a feature' do
     click_on 'Destacar'
 
     expect(current_path).to eq(candidates_job_path(job))
-    expect(page).to have_content('Candidato destacado')
+    expect(page).to have_css("img[src = './app/assets/images/star_icon.png']")
   end
   scenario ' and remove de feature' do
     user = create(:user)
@@ -29,6 +29,6 @@ feature 'Headhunter set a candidate as a feature' do
     click_on 'Destacar'
 
     expect(current_path).to eq(candidates_job_path(job))
-    expect(page).not_to have_content('Candidato destacado')
+    expect(page).not_to have_css("img[src = './app/assets/images/star_icon.png']")
   end
 end

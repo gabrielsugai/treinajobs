@@ -3,7 +3,7 @@
 <% @job.opportunities.each do |profile| %>
   <%= link_to profile.user_profile.name, profile.user_profile %>
   <%if profile.candidate_feature? %>
-    <p>Candidato destacado</p>
+    <img src="./app/assets/images/star_icon.png" alt="Candidato destacado">
   <% end %>
   <%= link_to  "Destacar", feature_candidate_job_opportunity_path(profile) %>
   <%= link_to  "Enviar proposta", new_job_job_offer_path(profile)%>

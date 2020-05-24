@@ -29,8 +29,9 @@
 
     <%elsif headhunter_signed_in?%>
       <%= link_to  "Inicio", headhunter_root_path %>
-      <%= link_to  "Vagas cadastradas", jobs_path %>
       <%= link_to  "Cadastrar nova vaga", new_job_path %>
+      <%= link_to  "Vagas cadastradas", jobs_path %>
+      <%= link_to  "Feedback de propostas", job_job_offers_path(current_headhunter) %>
       <%= link_to  "Sair", destroy_headhunter_session_path, method: :delete  %>
 
     <% else %>

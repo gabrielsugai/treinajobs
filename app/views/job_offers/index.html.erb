@@ -1,12 +1,30 @@
 <h1>Suas propostas</h1>
-<dl>
-<% @offers.each do |offer| %>
-  <%if offer.denied?%>
-  <% else %>
-    <%job = offer.job%>
-    <dt>Vaga:</dt>
-    <dd><%= link_to offer.job.title, job_job_offer_path(offer, job) %></dd>
+<% if user_signed_in? %>
+  <dl>
+  <% @offers.each do |offer| %>
+    <%if offer.pending?%>
+      <%job = offer.job%>
+      <dt>Vaga:</dt>
+      <dd><%= link_to offer.job.title, job_job_offer_path(offer, job) %></dd>
+    <% end %>
+  <% end %>
+  </dl>
+  <%= link_to  "Voltar", user_root_path %>
+
+<% elsif headhunter_signed_in? %>
+  <% @headhunter_jobs.each do |job| %>
+    <% job.job_offers.each do |offer| %>
+      <dt>Vaga: <%= job.title %>
+      <% if offer.accepted? %>
+        <dd>Status: Proposta Aceita</dd>
+      <% elsif offer.denied? %>
+        <dd>Status: Proposta Recusada</dd>
+      <% else %>
+        <dd>Status: Proposta Pendente</dd>
+      <% end %>
+      <dd>Candidato: <%= offer.user_profile.name %></dd>
+      <dd>Mensagem: <%= offer.message %></dd>
+    <% end %>
   <% end %>
 <% end %>
-</dl>
-<%= link_to  "Voltar", user_root_path %>
+

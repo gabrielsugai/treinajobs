@@ -1,7 +1,11 @@
 class JobOffersController < ApplicationController
 
   def index
-    @offers = current_user.user_profile.job_offers
+    if user_signed_in?
+      @offers = current_user.user_profile.job_offers
+    elsif headhunter_signed_in?
+      @headhunter_jobs = current_headhunter.jobs
+    end
   end
 
   def show

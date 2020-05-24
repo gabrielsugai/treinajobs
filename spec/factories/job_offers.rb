@@ -5,6 +5,7 @@ FactoryBot.define do
     benefits { "VT, VA, Plano de saude" }
     function { "Dev rails junior" }
     expectations { "Esperamos que de o seu melhor para ajudar a empresa" }
+    message { '' }
     status { 0 }
     job
     user_profile

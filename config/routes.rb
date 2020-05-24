@@ -17,7 +17,12 @@ Rails.application.routes.draw do
   end
   
   resources :jobs, only: [:index, :show, :new, :create] do
-    resources :job_offers, only: [:index, :show, :new, :create]
+    resources :job_offers, only: [:index, :show, :new, :create] do
+      get 'accept_message', on: :member
+      patch 'accept_offer', on: :member
+      get 'denied_message', on: :member
+      patch 'denied_offer', on: :member
+    end
     get 'candidates', on: :member
     resources :opportunities, only: [:index, :new, :create] do
       get 'feedback', on: :member

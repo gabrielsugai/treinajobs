@@ -23,4 +23,38 @@ class JobOffersController < ApplicationController
     redirect_to headhunter_root_path
   end
 
+  def accept_message
+    @offer = JobOffer.find(params[:id])
+  end
+
+  def accept_offer
+    message = params[:job_offer]
+    message = message[:message]
+    @current_offer = JobOffer.find(params[:id])
+    @current_offer.accepted!
+    @current_offer.message = message
+    @user_offers = current_user.user_profile.job_offers
+    @user_offers.each do |offer|
+      if offer.id != @current_offer.id
+        offer.denied!
+      end
+    end
+    flash[:notice] = "Processo finalizado com sucesso!"
+    redirect_to user_root_path
+  end
+
+  def denied_message
+    @offer = JobOffer.find(params[:id])
+  end
+
+  def denied_offer
+    message = params[:job_offer]
+    message = message[:message]
+    @current_offer = JobOffer.find(params[:id])
+    @current_offer.denied!
+    @current_offer.message = message
+    flash[:notice] = "Processo finalizado com sucesso!"
+    redirect_to user_root_path
+  end
+
 end

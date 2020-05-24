@@ -11,5 +11,6 @@
   <dt>Nossas expectativas:</dt>
   <dd><%= @offer.expectations %></dd>
 </dl>
-
+<%= link_to  "Aceitar proposta", accept_message_job_job_offer_path(@offer) %>
+<%= link_to  "Recusar proposta", denied_message_job_job_offer_path(@offer) %>
 <%= link_to  "Voltar", job_job_offers_path(@offer) %>

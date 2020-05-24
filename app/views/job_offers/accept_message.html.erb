@@ -1,0 +1,5 @@
+<%= form_with(model: @offer, url: accept_offer_job_job_offer_path, local: true) do |f|%>
+  <%= f.label :message, 'Observação' %>
+  <%= f.text_field :message %>
+  <%= f.submit 'Finalizar' %>
+<% end %>

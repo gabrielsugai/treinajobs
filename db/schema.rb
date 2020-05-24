@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_23_010227) do
+ActiveRecord::Schema.define(version: 2020_05_23_225202) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_profile_id", null: false
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2020_05_23_010227) do
     t.integer "user_profile_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "message"
     t.index ["job_id"], name: "index_job_offers_on_job_id"
     t.index ["user_profile_id"], name: "index_job_offers_on_user_profile_id"
   end

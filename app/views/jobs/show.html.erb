@@ -15,10 +15,13 @@
 </dl>
 
 <% if user_signed_in? %>
-  <%= link_to  "Candidatar-se", new_job_opportunity_path(@job) %>
+  <% if @job.opened? %>
+    <%= link_to  "Candidatar-se", new_job_opportunity_path(@job) %>
+  <% end %>
 
 <% elsif headhunter_signed_in? %>
   <%= link_to  "Candidatos", candidates_job_path(@job) %>
+  <%= link_to  "Encerrar vaga", end_job_job_path(@job) %>
 <% end %>
 
 <%= link_to  "Voltar", jobs_path %>

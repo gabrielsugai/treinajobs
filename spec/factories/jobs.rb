@@ -8,5 +8,6 @@ FactoryBot.define do
     limit_date { "#{1.day.from_now}" }
     local { "Sao paulo" }
     headhunter { create(:headhunter) }
+    status { 0 }
   end
 end

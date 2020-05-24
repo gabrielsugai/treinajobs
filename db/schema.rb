@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_23_225202) do
+ActiveRecord::Schema.define(version: 2020_05_24_042832) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_profile_id", null: false
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2020_05_23_225202) do
     t.integer "headhunter_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "status", default: 0
     t.index ["headhunter_id"], name: "index_jobs_on_headhunter_id"
   end
 

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   end
   
   resources :jobs, only: [:index, :show, :new, :create] do
+    get 'end_job', on: :member
     resources :job_offers, only: [:index, :show, :new, :create] do
       get 'accept_message', on: :member
       patch 'accept_offer', on: :member

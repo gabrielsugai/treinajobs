@@ -21,4 +21,11 @@ class JobsController < ApplicationController
     @opportunities = Opportunity.all
   end
 
+  def end_job
+    @job = Job.find(params[:id])
+    @job.ended!
+    flash[:notice] = "Processo finalizado com sucesso!"
+    redirect_to headhunter_root_path
+  end
+
 end

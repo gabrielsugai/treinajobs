@@ -1,3 +1,9 @@
+<% if @comment.errors.any? %>
+  <% @comment.errors.full_messages.each do |message| %>
+    <p><%= message %></p>
+  <% end %>
+<% end %>
+
 <% if @profile.avatar.present? %>
   <%= image_tag @profile.avatar %>
 <% end %>
@@ -28,11 +34,11 @@
 
 <% if user_signed_in? %>
   <% if @profile.user_id == current_user.id %>
-    <%= render 'comments' %>
+    <%= render 'user_profiles/comments' %>
   <% end %>
 
 <% elsif headhunter_signed_in? %>
-  <%= render 'comments' %>
+  <%= render 'user_profiles/comments' %>
 <% end %>
 
 <% if headhunter_signed_in? %>

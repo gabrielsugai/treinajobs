@@ -14,9 +14,12 @@ class OpportunitiesController < ApplicationController
     @opportunity = Opportunity.new(params.require(:opportunity).permit(:text))
     @opportunity.job_id = @job.id
     @opportunity.user_profile_id = current_user.user_profile.id
-    @opportunity.save
-    flash[:notice] = "Processo realizado com sucesso!"
-    redirect_to user_root_path
+    if @opportunity.save
+      flash[:notice] = "Processo realizado com sucesso!"
+      redirect_to user_root_path
+    else
+      render :new
+    end
   end
 
   def feature_candidate

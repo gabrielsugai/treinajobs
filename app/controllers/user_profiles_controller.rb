@@ -13,9 +13,12 @@ class UserProfilesController < ApplicationController
     @user_profile = UserProfile.new(params.require(:user_profile).permit(:avatar, :name, :social_name, :date_of_birth, 
                                                                         :schooling, :description, :experience))
     @user_profile.user_id = current_user.id
-    @user_profile.save
-    flash[:notice] = "Perfil completado com sucesso!"
-    redirect_to root_path
+    if @user_profile.save
+      flash[:notice] = "Perfil completado com sucesso!"
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def myapplys

@@ -20,11 +20,19 @@ class JobOffersController < ApplicationController
   end
 
   def create
+    @job = Job.find(params[:job_id])
     @offer = JobOffer.new(params.require(:job_offer).permit(:user_profile_id, :start_date, :salary, 
-                                                            :benefits, :function, :expectations, :job_id))
-    @offer.save
-    flash[:notice] = "Proposta enviar com sucesso!"
-    redirect_to headhunter_root_path
+                                                            :benefits, :function, :expectations,))
+    @offer.job_id = @job.id
+    if @offer.save
+      flash[:notice] = "Proposta enviada com sucesso!"
+      redirect_to headhunter_root_path
+    else
+      @job = Job.find(params[:job_id])
+      @candidates = @job.user_profiles
+      @opportunities = @job.opportunities
+      render :new
+    end
   end
 
   def accept_message

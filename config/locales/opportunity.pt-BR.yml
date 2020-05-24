@@ -1,0 +1,8 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      opportunity: Oportunidade de emprego
+    attributes:
+      opportunity:
+        text: Mensagem

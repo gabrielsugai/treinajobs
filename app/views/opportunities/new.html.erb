@@ -1,3 +1,9 @@
+<% if @opportunity.errors.any? %>
+  <% @opportunity.errors.full_messages.each do |message| %>
+    <p><%= message %></p>
+  <% end %>
+<% end %>
+
 <%= form_with(model: [@job, @opportunity], local: true) do |f| %>
   <%= f.label :text,'Fale de você' %>
   <%= f.text_field :text %>

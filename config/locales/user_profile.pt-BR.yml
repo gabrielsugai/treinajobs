@@ -1,0 +1,14 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      user_profile: Perfil de candidato
+    attributes:
+      user_profile:
+        name: Nome completo
+        social_name: Nome social
+        date_of_birth: Data de nascimento
+        schooling: Formação
+        description: Descrição
+        experience: Experiencia
+        

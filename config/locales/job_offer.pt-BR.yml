@@ -1,0 +1,12 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      job_offer: Proposta de emprego
+    attributes:
+      job_offer:
+        start_date: Data de início
+        salary: Salário
+        benefits: Benefícios
+        function: Função
+        expectations: Nossas expectativas

@@ -1,3 +1,9 @@
+<% if @user_profile.errors.any? %>
+  <% @user_profile.errors.full_messages.each do |message| %>
+    <p><%= message %></p>
+  <% end %>
+<% end %>
+
 <%= form_with(model: @user_profile, local: true) do |f| %>
   <%= f.label :avatar, 'Foto de perfil' %>
   <%= f.file_field :avatar %>

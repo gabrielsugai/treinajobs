@@ -1,3 +1,9 @@
+<% if @offer.errors.any? %>
+  <% @offer.errors.full_messages.each do |message| %>
+    <p><%= message %></p>
+  <% end %>
+<% end %>
+
 <%= form_with model: [@job, @offer], local: true do |f| %>
   <%= f.label :user_profile_id, 'Candidato' %>
   <%= f.collection_select :user_profile_id, @candidates, :id, :name %>

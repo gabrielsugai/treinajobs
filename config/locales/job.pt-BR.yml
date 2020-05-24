@@ -1,0 +1,14 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      job: Vaga de emprego
+    attributes:
+      job:
+        title: Titulo
+        description: Descrição da vaga
+        skills: Habilidades desejadas
+        salary: Faixa salarial
+        level: Nivel da vaga
+        limit_date: Data limite
+        local: Local

@@ -37,4 +37,29 @@ feature 'Headhunter register a job' do
     click_on 'Voltar'
     expect(current_path).to eq(jobs_path)
   end
+
+  scenario 'and fields canot be blank' do
+    headhunter = create(:headhunter)
+
+    login_as headhunter, scope: :headhunter
+
+    visit root_path
+    click_on 'Cadastrar nova vaga'
+    fill_in 'Titulo', with: ''
+    fill_in 'Descrição da vaga', with: ''
+    fill_in 'Habilidades desejadas', with: ''
+    fill_in 'Faixa salarial', with: ''
+    fill_in 'Nivel da vaga', with: ''
+    fill_in 'Data limite', with: ''
+    fill_in 'Local', with: ''
+    click_on 'Registrar'
+
+    expect(page).to have_content('Titulo não pode ficar em branco')
+    expect(page).to have_content('Descrição da vaga não pode ficar em branco')
+    expect(page).to have_content('Habilidades desejadas não pode ficar em branco')
+    expect(page).to have_content('Faixa salarial não pode ficar em branco')
+    expect(page).to have_content('Nivel da vaga não pode ficar em branco')
+    expect(page).to have_content('Data limite não pode ficar em branco')
+    expect(page).to have_content('Local não pode ficar em branco')
+  end
 end

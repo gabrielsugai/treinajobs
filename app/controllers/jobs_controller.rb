@@ -12,11 +12,16 @@ class JobsController < ApplicationController
   def new
     @job = Job.new()
   end
+
   def create
     @job = Job.new(params.require(:job).permit(:title, :description, :skills, :salary, :level, :limit_date, :local))
     @job.headhunter_id = current_headhunter.id
-    @job.save
-    redirect_to @job
+    if @job.save
+      flash[:notice] = "Vaga cadastrada com sucesso!"
+      redirect_to @job
+    else
+      render :new
+    end
   end
 
   def candidates

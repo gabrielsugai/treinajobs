@@ -29,7 +29,7 @@ class JobOffersController < ApplicationController
                                                             :benefits, :function, :expectations,))
     @offer.job_id = @job.id
     if @offer.save
-      flash[:notice] = "Proposta enviada com sucesso!"
+      flash[:alert] = "Proposta enviada com sucesso!"
       redirect_to headhunter_root_path
     else
       @job = Job.find(params[:job_id])

@@ -15,7 +15,7 @@ class UserProfilesController < ApplicationController
     @user_profile = UserProfile.new(profile_params)
     @user_profile.user_id = current_user.id
     if @user_profile.save
-      flash[:notice] = "Perfil completado com sucesso!"
+      flash[:alert] = "Perfil completado com sucesso!"
       redirect_to root_path
     else
       render :new
@@ -29,7 +29,7 @@ class UserProfilesController < ApplicationController
   def update
     @user_profile = current_user.user_profile
     if @user_profile.update(profile_params)
-      flash[:notice] = 'Perfil atualizado com sucesso!'
+      flash[:alert] = 'Perfil atualizado com sucesso!'
       redirect_to @user_profile
     else
       render :new

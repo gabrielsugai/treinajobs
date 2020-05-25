@@ -20,7 +20,7 @@ class JobsController < ApplicationController
     @job = Job.new(params.require(:job).permit(:title, :description, :skills, :salary, :level, :limit_date, :local))
     @job.headhunter_id = current_headhunter.id
     if @job.save
-      flash[:notice] = "Vaga cadastrada com sucesso!"
+      flash[:alert] = "Vaga cadastrada com sucesso!"
       redirect_to @job
     else
       render :new
@@ -35,7 +35,7 @@ class JobsController < ApplicationController
   def end_job
     @job = Job.find(params[:id])
     @job.ended!
-    flash[:notice] = "Processo finalizado com sucesso!"
+    flash[:alert] = "Processo finalizado com sucesso!"
     redirect_to headhunter_root_path
   end
 end

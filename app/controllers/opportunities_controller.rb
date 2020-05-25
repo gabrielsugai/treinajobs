@@ -18,7 +18,7 @@ class OpportunitiesController < ApplicationController
     @opportunity.job_id = @job.id
     @opportunity.user_profile_id = current_user.user_profile.id
     if @opportunity.save
-      flash[:notice] = "Processo realizado com sucesso!"
+      flash[:alert] = "Processo realizado com sucesso!"
       redirect_to user_root_path
     else
       render :new
@@ -41,7 +41,7 @@ class OpportunitiesController < ApplicationController
     @job = Job.find(params[:job_id])
     @opportunity.feedback_message = params[:feedback_message]
     @opportunity.rejected!
-    flash[:notice] = "Mensagem enviada com sucesso!"
+    flash[:alert] = "Mensagem enviada com sucesso!"
     redirect_to candidates_job_path(@job)
   end
   

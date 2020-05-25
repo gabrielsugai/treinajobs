@@ -19,10 +19,6 @@
 
 :small_blue_diamond: [Como rodar a aplicação](#como-rodar-a-aplicação-arrow_forward)
 
-... 
-
-Insira os tópicos do README em links para facilitar a navegação do leitor
-
 ## Descrição do projeto 
 
 <p allign="justify">Plataforma de vagas de emprego, onde recrutadores podem publicar vagas, candidatos podem se inscrever no processo seletivo. O recrutador pode analisar o perfil de cada candidato com a opção de deixar comentarios no perfil de cada um</p>
